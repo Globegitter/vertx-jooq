@@ -12,17 +12,25 @@ public class JsonAccessor {
 
     private JsonAccessor(){}
 
-//    public static JsonObject getJsonObject(Row row, String field){
-//        return (JsonObject) getJson(row,field).value();
-//    }
-//
-//    public static JsonArray getJsonArray(Row row, String field){
-//        return (JsonArray) getJson(row,field).value();
-//    }
-//
-//    public static Json getJson(Row row, String field) {
-//        //return row.getJson(field) == null ? JsonImpl.NULL : row.getJson(field);
+    public static JsonObject getJsonObject(Row row, String field){
+        return (JsonObject) getJson(row,field);
+    }
+
+    public static JsonArray getJsonArray(Row row, String field){
+        return (JsonArray) getJson(row,field);
+    }
+
+    public static Object getJson(Row row, String field) {
+        Object val = row.getValue(field);
+        if (val instanceof JsonObject) {
+            return val;
+        } else if (val instanceof JsonArray) {
+            return val;
+        } else {
+            return null;
+        }
+//        return row.getJson(field) == null ? JsonImpl.NULL : row.getJson(field);
 //        return null;
-//    }
+    }
 
 }
