@@ -48,11 +48,11 @@ public class JsonbToJsonObjectBinding implements Binding<JSONB, JsonObject> {
         // Depending on how you generate your SQL, you may need to explicitly distinguish
         // between jOOQ generating bind variables or inlined literals. If so, use this check:
         // ctx.render().paramType() == INLINED
-        RenderContext context = ctx.render().visit(DSL.val(ctx.convert(converter()).value()));
-        if (SQLDialect.POSTGRES.equals(ctx.configuration().dialect().family()))
-        {
-            context.sql("::json");
-        }
+//        RenderContext context = ctx.render().visit(DSL.val(ctx.convert(converter()).value()));
+//        if (SQLDialect.POSTGRES.equals(ctx.configuration().dialect().family()))
+//        {
+//            context.sql("::json");
+//        }
     }
 
     // Registering VARCHAR types for JDBC CallableStatement OUT parameters
